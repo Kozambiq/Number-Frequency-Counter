@@ -10,10 +10,17 @@ public class numberFrequencyCounter {
 
         int[] nums = new int[count];
 
+       
+        
         System.out.printf("Enter %d numbers: \n", count);
         for(int i = 0; i < count; i++){
             nums[i] = scanner.nextInt();
         }
+
+        int mostFrequentNumber = nums[0];
+        int highestFrequency = 0;
+        int maxNumber = nums[0];
+        int minNumber = nums[0];
 
         for(int i = 0; i < count; i++){
             int frequency = 1;
@@ -33,7 +40,27 @@ public class numberFrequencyCounter {
                     }
                 }
                 System.out.printf("%d appears %d times\n", nums[i], frequency);
+
+                
+                if(frequency > highestFrequency){
+                    highestFrequency = frequency;
+                    mostFrequentNumber = nums[i];
+                }
+                
             }
+            
+            if(nums[i] > maxNumber){
+                maxNumber = nums[i];
+            }
+
+            
+            if(nums[i] < minNumber){
+                minNumber = nums[i];
+            }
+            
         }
+        System.out.println("The most frequent number is " + mostFrequentNumber);
+        System.out.println("The largest number is " + maxNumber);
+        System.out.println("The smallest number is " + minNumber);
     }
 }
